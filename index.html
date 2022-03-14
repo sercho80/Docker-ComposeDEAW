@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Juego de cartas DWEC - DIIW</title>
+  </head>
+  <body>
+    <div class="inicio container row-xs" id="inicio">
+      <header class="col-12">Datos Previos</header>
+      <fieldset>
+        <label for="nombre" class="col-12">
+          <p>Nombre del jugador</p>
+          <input
+            type="text"
+            name="nombre"
+            id="nombre"
+            placeholder="Introduzca el nombre"
+          />
+        </label>
+        <button class="btn-jugador col-6" id="btn-jugador" disabled="enabled">
+          Jugar
+        </button>
+      </fieldset>
+    </div>
+    <div class="juego oculto oculto-altura" id="juego">
+      <header class="tituloPrincipal">Juego de cartas</header>
+      <div id="clearfix">
+        <div class="contenido">
+          <div class="fila">
+            <h1 class="titulo">Crupier</h1>
+            <div class="baraja baraja-Oculta" id="baraja"></div>
+            <div id="cartas-crupier"></div>
+          </div>
+          <div class="fila">
+            <h1 class="titulo" id="jugador">Jugador</h1>
+            <div id="cartas-jugador"></div>
+          </div>
+          <div class="botones">
+            <button id="btnNuevaPartida" disabled>Nueva partida</button>
+            <button id="btnPedirCarta" disabled>Pedir carta</button>
+            <button id="btnComodin" disabled>Comodín</button>
+            <button id="btnResultado" disabled>Comprobar</button>
+          </div>
+          <div id="Resultado"></div>
+        </div>
+      </div>
+    </div>
+    <audio src="./music.mp3"></audio>
+    <script type="module" src="js/index.js"></script>
+  </body>
+</html>

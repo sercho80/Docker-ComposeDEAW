@@ -1,0 +1,208 @@
+@import url("bootstrap-reboot.css");
+@import url("bootstrap-grid.css");
+
+:root {
+  --ultima-carta-jugador-x: 111.5vw;
+  --ultima-carta-jugador-y: 0vw;
+  --ultima-carta-crupier-x: 111.5vw;
+  --ultima-carta-crupier-y: 375px;
+  --last-z-index: 0;
+}
+
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+html {
+  background: url("/img/tapete.png") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+body {
+  background-color: transparent;
+  /* overflow: hidden; */
+}
+
+/*  Nombre jugador */
+.inicio,
+.inicio > fieldset {
+  border-radius: 10px;
+}
+
+.inicio {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  background: linear-gradient(to bottom, whitesmoke, lightblue);
+  font-size: 24px;
+  font-weight: bold;
+  color: gray;
+}
+
+.inicio > fieldset {
+  padding-bottom: 10px;
+  font-size: initial;
+  background: rgb(221, 218, 218);
+  border: 1px solid black;
+  display: grid;
+  justify-items: center;
+}
+
+.inicio > fieldset > label {
+  width: 50%;
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+.inicio > fieldset > label > input {
+  width: 100%;
+  margin: auto;
+}
+
+.btn-jugador {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+/* Vueltas y mas vueltas */
+.transicion-In {
+  transition-duration: 1s;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.transicion-Out {
+  transition-duration: 1.5s;
+  filter: blur(10px);
+  background-color: transparent;
+  width: 0px;
+  height: 30px;
+  overflow: hidden;
+  transform: rotate(720deg);
+}
+
+/* Ocultar */
+.oculto {
+  display: none;
+}
+
+.oculto-altura {
+  width: 0;
+  height: 0;
+}
+
+/* Baraja */
+.baraja > picture > img {
+  width: 150px;
+  height: 200px;
+  position: absolute;
+  right: 10px;
+  top: 250px;
+  background-color: transparent;
+  border-radius: 5px;
+  /* box-shadow: 0px 0px 500px gold; */
+}
+
+.baraja-Oculta {
+  display: none;
+}
+
+/* Cartas*/
+.carta-jugador {
+  transition: 1.5s;
+  z-index: var(--last-z-index);
+
+  -webkit-transform: translate(
+    calc(295% - var(--ultima-carta-jugador-x)),
+    calc(90% - var(--ultima-carta-jugador-y))
+  );
+  -moz-transform: translate(
+    calc(100% - var(--ultima-carta-jugador-x)),
+    calc(100% - var(--ultima-carta-jugador-y))
+  );
+  scale: 0.75;
+}
+
+.carta-crupier {
+  transition: 1.5s;
+  z-index: var(--last-z-index);
+  transform: translate(
+    calc(100% - var(--ultima-carta-crupier-x)),
+    calc(100% - var(--ultima-carta-crupier-y))
+  );
+  scale: 0.75;
+}
+/* Tapete */
+.tituloPrincipal {
+  color: #fff;
+  font-size: 40px;
+  font-family: Arial Black;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+.titulo {
+  color: #fff;
+}
+
+.contenido {
+  float: left;
+  width: 100%;
+}
+
+.fila {
+  height: 250px;
+  margin: 30px;
+  padding-left: 100px;
+  width: 90%;
+}
+
+.botones {
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .baraja > picture > img:nth-child(1) {
+    right: 0;
+    scale: 0.7;
+  }
+  .carta-jugador,
+  .carta-crupier {
+    scale: 0.5;
+  }
+  .carta-jugador {
+    transform: translate(
+      calc(-50% - var(--ultima-carta-jugador-x)),
+      calc(150% - var(--ultima-carta-jugador-y))
+    );
+  }
+  .carta-crupier {
+    transform: translate(
+      calc(-50% - var(--ultima-carta-crupier-x)),
+      calc(50% - var(--ultima-carta-crupier-y))
+    );
+  }
+}
+
+#Resultado {
+  border-radius: 20px;
+  background-color: aliceblue;
+  margin: auto;
+  margin-top: 50px;
+  width: 80%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.nuevaPartida {
+  animation-name: nuevaPartida;
+  animation-duration: 10s;
+}
+
+@keyframes nuevaPartida {
+  to {
+    top: 9999px;
+  }
+}

@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  apache:
+    container_name: apache_XiSe
+    image: 'httpd:latest'
+    ports:
+      - '8080:80'
+    volumes:
+      - .:/usr/local/apache2/htdocs
